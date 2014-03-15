@@ -1,0 +1,6 @@
+name = MyCustom
+package = My Custom
+core = 7.x
+
+files [] = mycustom.module
+

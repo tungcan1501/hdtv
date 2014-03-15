@@ -1,0 +1,50 @@
+<?php
+
+function yahoo_gravity_schema() {
+    $schema['yahoo_gravity'] = array(
+        'fields' => array(
+            'yahoo_id' => array(
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'yahoo_nick' => array(
+                'type' => 'varchar',
+                'length' => 70,
+                'not null' => TRUE
+            ),
+            'yahoo_gmail' => array(
+                'type' => 'varchar',
+                'length' => 70,
+                'not null' => TRUE
+            ),
+            'yahoo_skype' => array(
+                'type' => 'varchar',
+                'length' => 70,
+                'not null' => TRUE
+            ),
+            'yahoo_name' => array(
+                'type' => 'varchar',
+                'length' => 110,
+                'not null' => TRUE
+            ),
+            'yahoo_phone' => array(
+                'type' => 'varchar',
+                'length' => 110,
+                'not null' => TRUE
+            ),
+            'yahoo_weight' => array(
+                'type' => 'varchar',
+                'length' => 10,
+                'not null' => TRUE
+            )
+        ),
+        'primary key' => array('yahoo_id')
+    );
+
+    return $schema;
+}
+
+function yahoo_gravity_uninstall() {
+    db_query('DROP TABLE {yahoo_gravity}');
+}

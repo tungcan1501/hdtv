@@ -1,0 +1,8 @@
+filename = "Abele-Commerce-2013-12-07T00-52-35"
+description = ""
+datestamp = "1386352355"
+generator = "Backup and Migrate (http://drupal.org/project/backup_migrate)"
+generatorversion = "7.x-2.x"
+sites[0][version] = "7.24"
+sites[0][name] = "Abel e-Commerce"
+sites[0][url] = "http://minuscule.site/abel-uc/"

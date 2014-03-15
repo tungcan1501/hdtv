@@ -1,0 +1,5 @@
+name = Yahoo Support
+
+core = 7.x
+package = Gravity Developer
+files[] = yahoo_gravity.module

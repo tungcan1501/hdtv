@@ -1,0 +1,641 @@
+/** Omega template css content table */
+
+// ---------------------------------------------------->> LESS <<---------------
+@den:      #000000;
+@trang:    #FFFFFF;
+@vang:     #FFFC01;
+@xanh:     #517CC5;
+@xam:      #F0F0F0;
+@xam-2:    #8D7E6F;
+@xam-chu:  #2D2C2C;
+@xam-vien: #D3D3D3;
+.abel-def--color (@col: @xanh; @hov: @vang; @fow: normal) {
+    &:hover {
+        color: @hov;
+        text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+    }
+    font-weight: @fow;
+    color: @col;
+}
+.abel-def-a-colo (@col: @xanh; @hov: @vang) {
+    a {
+        &:hover {
+            color: @hov;
+        }
+        color: @col;
+    }
+}
+.abel-background (@rgb-1;@rgb-2) {
+    background: @rgb-1;
+    background: -webkit-linear-gradient( 90deg, @rgb-1 30%, @rgb-2 70%);
+    background:    -moz-linear-gradient( 90deg, @rgb-1 30%, @rgb-2 70%);
+    background:     -ms-linear-gradient( 90deg, @rgb-1 30%, @rgb-2 70%);
+    background:      -o-linear-gradient( 90deg, @rgb-1 30%, @rgb-2 70%);
+    background:         linear-gradient(180deg, @rgb-1 30%, @rgb-2 70%);
+}
+.abel-border-rad (@rad: 0px) {
+    -webkit-border-radius: @rad;
+    -moz-border-radius: @rad;
+    border-radius: @rad;
+}
+// ---------------------------------------------------->> All <<----------------
+@font-face {
+    font-family: Chuky;
+    src: url('../fonts/chuky.ttf');
+}
+@font-face {
+    font-family: MyriadPro;
+    src: url('../fonts/myriadpro-regular.otf');
+}
+body {
+    font-family: 'Tahoma',Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    line-height: 19px;
+}
+a {
+    &:link, &:hover, &:visited {
+        text-decoration: none;
+    }
+}
+button, input[type="reset"], input[type="submit"], input[type="button"] {
+    &:hover {
+        .abel-background (rgb(0, 152, 205),rgb(0, 104, 158));
+        padding: 4px 11px 5px;
+        color: @trang;
+        border: none;
+    }
+    .abel-background(rgb(254, 254, 254),rgb(239, 239, 239));
+    border: 1px solid @xam-vien;
+    border-radius: 15px;
+    height: 26px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: MyriadPro;
+}
+input {
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+p {
+    color: @xam-chu;
+    margin-bottom: 10px;
+}
+// ---------------------------------------------------->> Section <<------------
+#section-header {
+    margin-top: 15px;
+}
+// ---------------------------------------------------->> Zone <<---------------
+#zone-user {
+    margin-bottom: 30px;
+}
+#zone-header-wrapper {
+    body.front & {
+        //background: url('../images/imgs.png') no-repeat 0 -341px;
+        background : url('http://quatang1102.com/wp-content/themes/theme_gifls/images/header_bg1.jpg');
+        -webkit-background-size: cover;
+        -moz-background-size:    cover;
+        -o-background-size:      cover;
+        background-size:         cover;
+    }
+}
+#zone-header {
+    body.front & {
+        height: 445px;
+    }
+}
+#zone-footer-wrapper {
+    body.not-front & {
+        background: url('../images/imgs.png') no-repeat 0 -938px;
+        -webkit-background-size: cover;
+        -moz-background-size:    cover;
+        -o-background-size:      cover;
+        background-size:         cover;
+    }
+}
+#zone-footer {
+    body.not-front & {
+    }
+}
+// ---------------------------------------------------->> Region <<-------------
+#region-content {
+    body.not-logged-in & .region-content-inner > .tabs {
+        display: none;
+        visibility: hidden;
+    }
+}
+#region-footer-first {
+    body.not-front & {
+        padding-top: 50px;
+    }
+    border-bottom: 1px solid @xam-vien;
+    padding-bottom: 15px;
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-system-main-menu {
+    .content {
+        ul.menu {
+            left: 60px;
+            position: absolute;
+            top: 30px;
+        }
+        li {
+            display: inline-block;
+            list-style-image: none;
+            list-style-type: none;
+        }
+        a {
+            &.active {
+                color: @vang;
+                text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+            }
+            .abel-def--color;
+            font-family: Chuky;
+            font-size: 22px;
+        }
+        background: url('../images/imgs.png') no-repeat -9px -8px;
+        width: 698px;
+        height: 92px;
+        position: relative;
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-views-slide-show-pc-block {
+    .views-row {
+        position: relative;
+        height: 345px;
+    }
+    .views-field-name {
+        a {
+            .abel-def--color;
+            font-family: Chuky;
+            font-size: 22px;
+            text-transform: uppercase;
+        }
+        margin-bottom: 26px;
+        width: 460px;
+    }
+    .views-field-field-pc-introduction {
+        color: @xam-chu;
+        font-family: Chuky;
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 26px;
+        width: 460px;
+    }
+    .views-field-name-1 {
+        a {
+            .abel-def--color;
+            &:hover {
+                background: url('../images/imgs.png') no-repeat -1107px -59px;
+            }
+            padding-right: 18px;
+        }
+        font-family: Chuky;
+        font-size: 20px;
+        width: 460px;
+    }
+    .views-field-field-pc-image {
+        left: 480px;
+        position: absolute;
+        top: 0px;
+    }
+    margin: 0 0 50px;
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-views-product-block-3 {
+    .content {
+        background: url('../images/imgs.png') no-repeat -18px -111px;
+        height: 178px;
+    }
+    .jcarousel-container-horizontal {
+        padding: 9px 40px;
+        width: 840px;
+    }
+    .jcarousel-prev-horizontal {
+        background: url('../images/imgs.png') no-repeat -1082px -2px;
+    }
+    .jcarousel-clip-horizontal {
+        width: 840px;
+    }
+    .jcarousel-next-horizontal {
+        background: url('../images/imgs.png') no-repeat -1112px -3px;
+    }
+    .jcarousel-item {
+        .field-content {
+            margin: 0 auto;
+            width: 140px;
+        }
+        background: transparent;
+        border: none;
+        height: 138px;
+    }
+    .views-field-uc-product-image {}
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-views-our-service-block {
+    .views-row {
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+        .abel-border-rad (50px);
+        color:            rgba(0, 0, 0, 0.25);
+        background-color: rgba(0, 0, 0, 0.25);
+        background:       rgba(0, 0, 0, 0.25);
+        float: left;
+        height: 150px;
+        margin: 0 10px;
+        padding: 20px 15px;
+        position: relative;
+        width: 270px;
+    }
+    .views-field-title {
+        color: @trang;
+        font-family: Chuky;
+        font-size: 18px;
+        height: 32px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .views-field-field-service-image {
+        img {
+            .abel-border-rad (52px);
+            border: 1px solid @trang;
+            padding: 1px;
+            width: 105px;
+        }
+        float: left;
+        margin: 0 15px 15px 0;
+    }
+    .views-field-body p {
+        color: @trang;
+        font-family: Arial;
+        font-size: 12px;
+        line-height: 19px;
+    }
+    .views-field-view-node {
+        a {
+            color: @xanh;
+            font-family: Chuky;
+            font-size: 20px;
+        }
+        clear: left;
+        background: url('../images/imgs.png') no-repeat -718px -57px;
+        left: 50px;
+        padding: 9px 0;
+        position: absolute;
+        text-align: center;
+        top: 170px;
+        width: 200px;
+    }
+    height: 210px;
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-views-contact-address-block-1 {
+    .views-field-field-company-introduction {
+        color: @xam-chu;
+        font-family: Chuky;
+        font-size: 18px;
+        font-style: normal;
+        line-height: 19px;
+        text-align: right;
+    }
+    margin-bottom: 20px;
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-multiblock-2 {
+    .content {
+        li {
+            a {
+                &.active {
+                    color: @vang;
+                    text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+                }
+                &:hover {
+                    color: @trang;
+                    background: url('../images/imgs.png') no-repeat -775px -7px;
+                    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+                }
+                color: @xanh;
+                background: url('../images/imgs.png') no-repeat -949px -58px;
+                display: block;
+                font-family: Chuky;
+                font-size: 18px;
+                font-weight: 200;
+                letter-spacing: -0.02em;
+                height: 24px;
+                margin-top: -1px;
+                padding: 10px 32px 6px 0;
+            }
+            list-style-image: none;
+            list-style-type: none;
+            text-align: right;
+            margin: 0;
+            padding: 0;
+        }
+        & > ul > li.leaf a {
+            &:hover {
+                color: @trang;
+                background: url('../images/imgs.png') no-repeat -775px -7px transparent;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            }
+            background: transparent;
+        }
+    }
+    margin-bottom: 30px;
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-blockify-blockify-page-title {
+    #page-title {
+        color: @xanh;
+        font-family: MyriadPro;
+        font-size: 18px;
+        font-weight: normal;
+        letter-spacing: 0;
+        line-height: 32px;
+        margin-bottom: 0;
+        text-transform: uppercase;
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-blockify-blockify-breadcrumb {
+    .block-inner {
+        border-bottom: 1px solid @xam-vien;
+        margin-bottom: 15px;
+    }
+    .content {
+        .abel-def-a-colo (@xam-chu,@xanh);
+        .breadcrumb {
+            color: @xam-chu;
+        }
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-system-main {
+    body.page-all-product &,
+    body.page-our-service &,
+    body.page-taxonomy-term- & {
+        .content {
+            padding: 0 0 15px;
+        }
+        .views-field-view-node {
+            margin-bottom: 20px;
+        }
+    }
+    .node-product {
+        .field-label {
+            margin-right: 5px;
+        }
+        .product-info-label, .uc-price-label {
+            font-weight: bold;
+        }
+        .field-name-uc-product-image {
+            border: 1px solid @xam-vien;
+            float: left;
+            margin: 0 15px 10px 0;
+            padding: 3px;
+            width: 311px;
+        }
+        .field-name-title-field {
+            .field-item {
+                color: @xanh;
+                font-family: MyriadPro;
+                font-size: 16px;
+                line-height: 19px;
+                text-transform: uppercase;
+            }
+        }
+        .product-info,
+        .field-name-field-product-order-type {
+            margin-right: 0;
+            padding: 5px 0 0;
+        }
+        .add-to-cart {
+            margin-right: 0;
+            padding: 5px 0 0;
+            .form-actions {
+                margin: 0;
+            }
+            input {}
+        }
+        .field-name-fblikebutton-ds-field {
+            margin-right: 0;
+            padding: 10px 0 0;
+        }
+        .field-name-body {
+            p {
+                color: @xam-chu;
+            }
+            clear: left;
+            padding-bottom: 15px;
+        }
+    }
+    .item-list {
+        clear: both;
+        text-align: center !important;
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+.block-views-product-block-2 {
+    .block-title {
+        color: @xanh;
+        font-family: MyriadPro;
+        font-size: 18px;
+        font-weight: normal;
+        letter-spacing: 0;
+        line-height: 32px;
+        text-transform: uppercase;
+    }
+    .content {
+        padding-bottom: 12px;
+    }
+    .views-row {
+        &:nth-child(3n+1) {
+            padding: 0 10px 8px 0;
+        }
+        &:nth-child(3n) {
+            padding: 0 0 8px 10px;
+        }
+        .views-field-field-service-image,
+        .views-field-uc-product-image {
+            border: 1px dashed @xam-vien;
+            padding: 3px 2px;
+            margin-bottom: 3px;
+        }
+        .views-field-title {
+            a {
+                &:hover {
+                    color: @xanh;
+                }
+                color: @xam-chu;
+                display: block;
+                font-family: Chuky;
+                font-size: 16px;
+                font-weight: bold;
+                line-height: 19px;
+                text-transform: uppercase;
+            }
+            height: 39px;
+            padding-top: 5px;
+        }
+        .views-field-body {
+            .field-content {
+                height: 80px;
+            }
+            p {
+                text-align: left;
+                margin-bottom: 0;
+            }
+            border-bottom: 1px solid @xam-vien;
+            padding-bottom: 15px;
+        }
+        .views-field-view-node {
+            a {
+                color: @trang;
+                background: url('../images/imgs.png') no-repeat -999px -7px;
+                font-size: 15px;
+                font-weight: bold;
+                padding: 3px 12px 3px 37px;
+                text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+            }
+            margin-top: 10px;
+            padding: 4px 0;
+            text-align: right;
+        }
+        .views-field-addtocartlink {
+        }
+        padding: 0 10px 8px;
+        text-align: center;
+        width: 220px;
+        float: left;
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-views-product-block-4 {
+    .block-title {
+        padding: 15px 0;
+    }
+    border-top: 1px solid @xam-vien;
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-views-contact-address-block {
+    .views-row {
+        position: relative;
+    }
+    .views-field {
+        body.not-front & {
+            color: @trang;
+        }        
+        color: @xam-chu;
+        margin: 10px 0;
+        width: 460px;
+    }
+    .views-label {
+        float: left;
+        font-weight: bold;
+        margin-right: 5px;
+    }
+    .views-field-title {
+        color: @xanh;
+        font-family: Chuky;
+        font-size: 19px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .views-field-field-company-overview {
+        color: @xam-chu;
+        margin: 10px 0;
+    }
+    .views-field-field-company-phone {
+        color: @xam-chu;
+        font-size: 26px;
+        font-style: normal;
+        font-weight: normal;
+        margin: 10px 0;
+    }
+    .views-field-field-company-maps {
+        .geolocation-map {
+            margin: 0;
+            padding: 0;
+        }
+        left: 478px;
+        margin: 0;
+        padding: 15px;
+        position: absolute;
+        top: 0;
+        width: 430px;
+    }
+    body.front & {
+        .views-field-field-company-maps {
+            border: 1px solid @xam-vien;
+        }
+    }
+    body.not-front & {
+        .views-field-field-company-overview,
+        .views-field-field-company-location,
+        .views-field-field-company-fax,
+        .views-field-field-company-email {
+            font-weight: bold;
+        }
+        .views-field-field-company-maps {
+            .geolocation-map {
+                border: 1px solid @xam-vien;
+            }
+            background: @xam;
+        }
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-fblikebutton-fblikebutton-static-block {
+    width: 460px;
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-block-1 {
+    margin: 10px 0;
+}
+// ---------------------------------------------------->> Other <<--------------
+.pager {
+    li {
+        &.pager-first {
+            border-radius: 0;
+        }
+        &.pager-previous {
+            a {
+                width: 70px;
+            }
+        }
+        &.pager-ellipsis {
+            visibility: hidden;
+            display: none;
+        }
+        &.pager-next {
+            position: static;
+        }
+        &.pager-last {
+            position: static;
+            border-radius: 0;
+        }
+        &.pager-current {
+            background: @xanh;
+            border-radius: 0;
+        }
+        a {
+            &:hover {
+                background: @xanh;
+                border-radius: 0 !important;
+                color: @trang;
+            }
+            color: @xanh;
+            background: transparent;
+            border-radius: 0 !important;
+        }
+        border: 1px solid @xanh !important;
+        margin: 0 2px !important;
+        border-radius: 0;
+    }
+    display: inline-block !important;
+    background: @trang;
+    border: none;
+}

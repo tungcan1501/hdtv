@@ -1,0 +1,12 @@
+<?php
+/*
+ * implement hook_form_alter
+ */
+
+function mycustom_form_alter(&$form, $form_state, $form_id) {
+  //dsm($form_id);
+  if($form_id == 'product_node_form') {
+    //dsm($form);
+    $form['base']['model']['#default_value'] = time();
+  }
+}

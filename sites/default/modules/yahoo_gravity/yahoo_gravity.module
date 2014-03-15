@@ -1,0 +1,345 @@
+<?php
+
+// SOME CUSTOM MODULES
+
+function yahoo_gravity_skype_status($skype_id) {
+    $status = file_get_contents("http://mystatus.skype.com/" . $skype_id . ".num");
+    if ($status == "1") {
+        return 0;
+    } else if ($status == "2") {
+        return 1;
+    }
+}
+
+/// --------- END CUSTOM MODULE -------------- ///////////
+
+function yahoo_gravity_block_info() {
+    $block = array();
+    $block['yahoo_gravity'] = array(
+        'info' => t('Yahoo Support'));
+    return $block;
+}
+
+function yahoo_gravity_permission() {
+    return array(
+        'administer yahoo Gravity' => array(
+            'title' => t('Administer Yahoo Gravity'),
+            'description' => t('Perform administration tasks for my module.'),
+        ),
+    );
+}
+
+function yahoo_gravity_block_view($block_name = 'yahoo_gravity') {
+    $block = array(
+        'content' => '',
+        'subject' => ''
+    );
+    if ($block_name == 'yahoo_gravity') {
+        $block['subject'] = 'Hỗ trợ trực tuyến';
+        $query = db_select('yahoo_gravity', 'n')
+                ->fields('n', array('yahoo_id', 'yahoo_name', 'yahoo_nick', 'yahoo_gmail', 'yahoo_skype', 'yahoo_phone', 'yahoo_weight'))
+                ->orderBy('yahoo_weight', 'ASC')
+                ->range(0, variable_get('yahoo_gravity_number_of_item_displayed'))
+                ->execute();
+
+        $items = array();
+
+        foreach ($query as $node) {
+            $items[] = array(
+                'data' => array(
+                    '#theme' => 'yahoo_gravity_theme_item',
+                    '#node' => $node
+                ),
+                'class' => array('yahoo_' . $node->yahoo_id)
+            );
+        }
+
+        if (!(empty($items))) {
+            $block['content']['list'] = array(
+                '#theme' => 'item_list',
+                '#items' => $items,
+                '#pre_render' => array('yahoo_gravity_item_list_child_render')
+            );
+        }
+    }
+    $block['content']['#attached']['css'][] = drupal_get_path('module', 'yahoo_gravity') . '/css/yahoo_gravity.css';
+    return $block;
+}
+
+function yahoo_gravity_item_list_child_render($elements) {
+    //krumo($elements);
+    foreach (array_keys($elements['#items']) AS $key) {
+        if (is_array($elements['#items'][$key]['data'])) {
+            $elements['#items'][$key]['data'] = drupal_render($elements['#items'][$key]['data']);
+        }
+    }
+
+    return $elements;
+}
+
+function yahoo_gravity_theme($existing, $type, $theme, $path) {
+    return array(
+        'yahoo_gravity_theme_item' => array(
+            'variables' => array(
+                'node' => NULL
+            )
+            , 'template' => 'yahoo-gravity-block-item'
+        ),
+        'yahoo_gravity_theme_form' => array(
+            'render element' => 'element'
+        )
+    );
+}
+
+function template_preprocess_yahoo_gravity_theme_item(&$variables) {
+    global $base_url;
+    $variables['path'] = $base_url . "/" . drupal_get_path('module', 'yahoo_gravity') . '/';
+}
+
+function yahoo_gravity_menu() {
+    $items = array();
+
+    $items['admin/structure/yahoo_gravity'] = array(
+        'title' => t('Yahoo Support'),
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('yahoo_config_page'),
+        'access callback' => TRUE,
+    );
+
+    $items['admin/structure/yahoo_gravity/item/%/edit'] = array(
+        'title' => t('Edit Yahoo'),
+        'page callback' => 'yahoo_edit_page',
+        'page arguments' => array(4),
+        'access callback' => TRUE,
+    );
+
+    $items['admin/structure/yahoo_gravity/add_new_yahoo'] = array(
+        'title' => t('Add new contact'),
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('yahoo_add_contact_form_page'),
+        'access callback' => TRUE,
+        'type' => MENU_LOCAL_TASK,
+    );
+
+    return $items;
+}
+
+function yahoo_add_contact_form_page($form, $form_state) {
+    $form['edit_yahoo'] = array(
+        '#type' => 'fieldset',
+        '#title' => ''
+    );
+
+    $form['edit_yahoo']['yahoo_name'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Real Name')
+    );
+
+    $form['edit_yahoo']['yahoo_nick'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Nick')
+    );
+
+    $form['edit_yahoo']['yahoo_gmail'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Gmail')
+    );
+
+    $form['edit_yahoo']['yahoo_skype'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Skype')
+    );
+
+    $form['edit_yahoo']['yahoo_phone'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Phone Number')
+    );
+
+    $form['edit_yahoo']['submit'] = array(
+        '#type' => 'submit',
+        '#value' => 'Save',
+        '#submit' => array('yahoo_contact_form_page_submit')
+    );
+
+    $form['edit_yahoo']['goback'] = array(
+        '#type' => 'submit',
+        '#value' => 'Go Back',
+        '#submit' => array('yahoo_page_go_back')
+    );
+
+    return $form;
+}
+
+function yahoo_contact_form_page_submit($form, &$form_state) {
+    drupal_set_message($form_state['values']['yahoo_name'] . ' has been added ');
+    $yahoo = new stdClass();
+    $yahoo->yahoo_name = $form_state['values']['yahoo_name'];
+    $yahoo->yahoo_nick = $form_state['values']['yahoo_nick'];
+    $yahoo->yahoo_gmail = $form_state['values']['yahoo_gmail'];
+    $yahoo->yahoo_skype = $form_state['values']['yahoo_skype'];
+    $yahoo->yahoo_phone = $form_state['values']['yahoo_phone'];
+    $yahoo->yahoo_weight = '1';
+    drupal_write_record('yahoo_gravity', $yahoo);
+}
+
+function yahoo_page_go_back($form, &$form_state) {
+    $form_state['redirect'] = 'admin/structure/yahoo_gravity';
+}
+
+function yahoo_config_page($form, &$form_state) {
+    $form['yahoo_contacts'] = array(
+        '#prefix' => '<div id="yahoo_contacts">',
+        '#suffix' => '</div>',
+        '#tree' => TRUE,
+        '#theme' => 'yahoo_gravity_theme_form'
+    );
+
+    $query = db_select('yahoo_gravity', 'n')
+            ->fields('n', array('yahoo_id', 'yahoo_name', 'yahoo_nick', 'yahoo_gmail', 'yahoo_skype', 'yahoo_phone', 'yahoo_weight'))
+            ->orderBy('yahoo_weight', 'ASC')
+            ->execute();
+    $dem = 0;
+
+    foreach ($query as $node) {
+        $form['yahoo_contacts'][$dem]['yahoo_select'] = array(
+            '#type' => 'checkbox',
+            '#default_value' => 0,
+            '#attributes' => array('class' => array($node->yahoo_id)),
+        );
+        $form['yahoo_contacts'][$dem]['yahoo_name'] = array(
+            '#type' => 'textfield',
+            '#default_value' => $node->yahoo_name,
+            '#size' => 30,
+            '#maxlength' => 128,
+        );
+        $form['yahoo_contacts'][$dem]['yahoo_nick'] = array(
+            '#type' => 'textfield',
+            '#default_value' => $node->yahoo_nick,
+            '#size' => 30,
+            '#maxlength' => 128,
+        );
+        $form['yahoo_contacts'][$dem]['yahoo_gmail'] = array(
+            '#type' => 'textfield',
+            '#default_value' => $node->yahoo_gmail,
+            '#size' => 30,
+            '#maxlength' => 128,
+        );
+        $form['yahoo_contacts'][$dem]['yahoo_skype'] = array(
+            '#type' => 'textfield',
+            '#default_value' => $node->yahoo_skype,
+            '#size' => 30,
+            '#maxlength' => 128,
+        );
+        $form['yahoo_contacts'][$dem]['yahoo_phone'] = array(
+            '#type' => 'textfield',
+            '#default_value' => $node->yahoo_phone,
+            '#size' => 30,
+            '#maxlength' => 128,
+        );
+        $form['yahoo_contacts'][$dem]['yahoo_weight'] = array(
+            '#type' => 'textfield',
+            '#default_value' => $node->yahoo_weight,
+            '#attributes' => array('class' => array('yahoo-weight')),
+        );
+        $form['yahoo_contacts'][$dem]['yahoo_id'] = array(
+            '#type' => 'hidden',
+            '#default_value' => $node->yahoo_id,
+        );
+        ++$dem;
+    }
+
+    $form_state['num_of_element'] = $dem;
+
+    $form['yahoo_gravity_number_of_item_displayed'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Number of item to display'),
+        '#size' => 10,
+        '#maxlength' => 20,
+        '#default_value' => variable_get('yahoo_gravity_number_of_item_displayed', 10)
+    );
+
+    $form['submit'] = array(
+        '#type' => 'submit',
+        '#value' => t('Save'),
+    );
+
+    $form['delete'] = array(
+        '#type' => 'submit',
+        '#value' => t('Delete Select'),
+        '#submit' => array('delete_yahoo_contact_submit'),
+    );
+
+    return $form;
+}
+
+function theme_yahoo_gravity_theme_form($variables) {
+    $element = $variables['element'];
+    $table_id = 'tung-can';
+    drupal_add_tabledrag($table_id, 'order', 'sibling', 'yahoo-weight');
+    $header = array(
+        'yahoo_select' => t('Select'),
+        'yahoo_name' => t('Real Name'),
+        'yahoo_nick' => t('Nick'),
+        'yahoo_gmail' => t('Gmail'),
+        'yahoo_skype' => t('Skype'),
+        'yahoo_phone' => t('Phone'),
+        'yahoo_weight' => t('Weight')
+    );
+
+    $rows = array();
+    //krumo($element);
+    foreach (element_children($element) as $key) {
+        $row = array();
+
+        $row['data'] = array();
+        foreach ($header as $fieldname => $title) {
+            $row['data'][] = drupal_render($element[$key][$fieldname]);
+            $row['class'] = array('draggable');
+        }
+        $rows[] = $row;
+    }
+    return theme('table', array(
+        'header' => $header,
+        'rows' => $rows,
+        'attributes' => array('id' => $table_id),
+        'empty' => '',
+        'sticky' => FALSE,
+    ));
+}
+
+function yahoo_config_page_submit($form, &$form_state) {
+    drupal_set_message('Configuration has been saved!');
+    $dem = $form_state['num_of_element'];
+    variable_set('yahoo_gravity_number_of_item_displayed', $form_state['values']['yahoo_gravity_number_of_item_displayed']);
+    for ($i = 0; $i < $dem; $i++) {
+        $yahoo = new stdClass();
+        $id = $form_state['values']['yahoo_contacts'][$i]['yahoo_id'];
+        $yahoo->yahoo_id = $id;
+        $yahoo->yahoo_weight = $form_state['values']['yahoo_contacts'][$i]['yahoo_weight'];
+        $yahoo->yahoo_name = $form_state['values']['yahoo_contacts'][$i]['yahoo_name'];
+        $yahoo->yahoo_nick = $form_state['values']['yahoo_contacts'][$i]['yahoo_nick'];
+        $yahoo->yahoo_gmail = $form_state['values']['yahoo_contacts'][$i]['yahoo_gmail'];
+        $yahoo->yahoo_skype = $form_state['values']['yahoo_contacts'][$i]['yahoo_skype'];
+        $yahoo->yahoo_phone = $form_state['values']['yahoo_contacts'][$i]['yahoo_phone'];
+        drupal_write_record('yahoo_gravity', $yahoo, 'yahoo_id');
+    }
+}
+
+function delete_yahoo_contact_submit($form, &$form_state) {
+    $dem = $form_state['num_of_element'];
+    $str = '';
+    for ($i = 0; $i < $dem; $i++) {
+        $id = $form['yahoo_contacts'][$i]['yahoo_select']['#attributes']['class'][0];
+        //drupal_set_message($id);
+        if ($form_state['values']['yahoo_contacts'][$i]['yahoo_select']) {
+            db_delete('yahoo_gravity')
+                    ->condition('yahoo_id', $id)
+                    ->execute();
+            $str.=$form_state['values']['yahoo_contacts'][$i]['yahoo_name'] . ' , ';
+        }
+    }
+
+    drupal_set_message($str . ' has been deleted !');
+}
+
+?>

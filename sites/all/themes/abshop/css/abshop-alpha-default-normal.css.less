@@ -1,0 +1,758 @@
+/* This file will hold styles that are loaded using the same media query as the normal grid. */
+/* If you are using the default media queries provided by Omega, these styles will also
+ *  apply to the widescreen layout unless they are overridden by the widescreen styles. */
+
+// ---------------------------------------------------->> LESS <<---------------
+@xam-chu:  #555555;
+@xam-vien: #CCCCCC;
+@vang:     #000000;
+@xanh:     #517CC5;
+@xanh-2:   #08507E;
+@xanh-3:   #81CEFF;
+@xam:      #F0F0F0;
+@trang:    #FFFFFF;
+@den:      #000000;
+@im:       !important;
+@trong : transparent;
+
+
+@font-face
+{
+  font-family: hdtv-title-1;
+  src: url(../fonts/lhf-fire-house.ttf);
+}
+@font-face
+{
+  font-family: hdtv-title-2;
+  src: url(../fonts/SF Movie Poster Bold.ttf);
+}
+@font-face
+{
+  font-family: hdtv-title-3;
+  src: url(../fonts/UTM_Cafeta.ttf);
+}
+@font-face
+{
+  font-family: hdtv-menu-link1;
+  src: url(../fonts/VNI-Butlong.ttf);
+}
+@font-face
+{
+  font-family: hdtv-menu-link2;
+  src: url(../fonts/VNI-Briquet.ttf);
+}
+@font-face
+{
+  font-family: hdtv-menu-link3;
+  src: url(../fonts/VNI-ShishoniBrush.ttf);
+}
+@font-face
+{
+  font-family: hdtv-menu-link4;
+  src: url(../fonts/VNI-Zirkon.ttf);
+}
+
+@font-face
+{
+  font-family: hdtv-menu-link5;
+  src: url(../fonts/VNI-Univer.ttf);
+}
+
+.background-list() {
+  background : url('../images/giftBox.png') no-repeat;
+}
+.abel--background (@pos: 0px 0px) {
+    background: url('../images/imgs.png') no-repeat scroll @pos;
+}
+.abel-add-to-cart () {
+    &:hover {
+        .abel--background (-442px -8px);
+        padding: 5px 11px 6px 38px;
+    }
+    .abel--background (-187px -9px);
+    height: 27px;
+    padding: 4px 10px 5px 37px;
+}
+.abel-bg-gradient (@rgb-1;@rgb-2) {
+    background: @rgb-1;
+    background: -webkit-linear-gradient( 90deg, @rgb-1 30%, @rgb-2 70%);
+    background:    -moz-linear-gradient( 90deg, @rgb-1 30%, @rgb-2 70%);
+    background:     -ms-linear-gradient( 90deg, @rgb-1 30%, @rgb-2 70%);
+    background:      -o-linear-gradient( 90deg, @rgb-1 30%, @rgb-2 70%);
+    background:         linear-gradient(180deg, @rgb-1 30%, @rgb-2 70%);
+}
+.abel-bor-and-pad (@type: solid; @col: @xam-vien; @pads: 0px) {
+    border: 1px @type @col;
+    padding: @pads;
+}
+.abel-bord-bottom (@px: 1px; @type: dashed; @col: @xam-vien) {
+    border-bottom: @px @type @col;
+}
+.abel-field-links (@cl: @xam-chu; @ch: @xanh; @fs: 13px; @fw: bold; @tt: none) {
+    &:hover {
+        color: @ch;
+    }
+    color: @cl;
+    font-size: @fs;
+    font-weight: @fw;
+    text-transform: @tt;
+}
+.abel-field-title (@he:20px) {
+    a {
+        .abel-field-links(@tt: uppercase);
+    }
+    height: @he;
+}
+.abel-page--title (@col: @vang; @xy: 0px 0px; @padleft) {
+    .abel--background (@xy);
+    color: @col;
+    font-size: 13px;
+    font-weight: bold;
+    height: 38px;
+    margin: 0 0 -9px 0;
+    padding: 9px 0 0 @padleft;
+    text-transform: uppercase;
+}
+.abel-views--rows (@wit: 220px; @ptop: 12px; @pmid: 6px; @pbot: 8px) {
+    &:nth-child(3n+1) {
+        padding: @ptop (@pmid + 1) @pbot @pmid;
+    }
+    &:nth-child(3n) {
+        padding: @ptop @pmid @pbot (@pmid + 1);
+    }
+    padding: @ptop @pmid @pbot;
+    width: @wit;
+}
+
+hdtv-views-row() {
+  width : 31%;
+  height : 320px;
+  margin-left : 15px;
+  background : #fff;
+}
+// ---------------------------------------------------->> All <<----------------
+body {
+    font: 12px/1.5 "Arial", Verdana, Helvetica, sans-serif;
+    #page-title {
+      background : url(../images/bullet.png) no-repeat;
+      background-position-y: 19px;
+      padding-left: 23px;
+      color : #000;
+      font-family : hdtv-title-3;
+      font-size : 24px;
+      font-weight : 500;
+    }
+    #page {
+        .abel--background (-109px -210px);
+        background-color: @den;
+        background : #F0F0F0;
+    }
+}
+a {
+    &:link, &:hover, &:visited {
+        text-decoration: none;
+    }
+}    
+button, input[type="reset"], input[type="submit"], input[type="button"] {
+    &:hover {
+        .abel-bg-gradient (rgb(0, 152, 205),rgb(0, 104, 158));
+        color: @trang;
+        border: none @im;
+        padding: 4px 11px 5px;
+    }
+    .abel-bg-gradient (rgb(254, 254, 254),rgb(239, 239, 239));
+    .abel-bor-and-pad (@pads: 3px 10px 4px 10px);
+    color: @xam-chu;
+    border-radius: 12px;
+    height: 26px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Arial", Helvetica, sans-serif;
+    letter-spacing: -0.05em;
+}
+input {
+    box-shadow: none @im;
+    text-shadow: none @im;
+}
+p {
+    margin-bottom: 10px;
+}
+// ---------------------------------------------------->> Section <<------------
+#section-header {
+    padding-top: 40px;
+}
+// ---------------------------------------------------->> Zone <<---------------
+#zone-header {
+    background: @trang;
+}
+#zone-branding {
+    .abel-bord-bottom (5px; solid; @xanh-2);
+}
+#zone-menu-wrapper {
+    .abel--background (156px -104px);
+}
+#zone-content {
+    background: @xam;
+    .region {
+        margin-top: 30px;
+    }
+    #region-sidebar-second {
+        margin-top: 0;
+    }
+}
+// ---------------------------------------------------->> Region <<-------------
+#region-sidebar-first {
+    .block {
+        .block-title {
+            .abel-page--title (@xy: -9px -46px; @padleft: 0px);
+            background : url(../images/24_frame.png) no-repeat;
+            bacground-position-y : 20px;
+            font-size: 18px;
+            font-weight : 500;
+            margin-left : 0px;
+            margin-bottom : 5px;
+            background-position-y: 10PX;
+            padding-left: 30px;
+        }
+        .content {
+            .abel-bor-and-pad (@pads: 15px 7px);
+            background: transparent;
+            border-radius: 0 0 5px 5px;
+        }
+        margin: 0 0 20px 0;
+    }
+}
+#region-content {
+    .block {
+        margin-bottom: 20px;
+    }
+    .block-title {
+        .abel-page--title (@xy: -235px -46px; @padleft: 20px);
+    }
+    .block-inner > .content {
+        .abel-bor-and-pad (@pads: 10px);
+        background: @trong;
+        border : none;
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-block-7 {
+    .content {
+        margin-top: 20px;
+        p {
+            &#abel-logo {
+                float: left;
+                width: 200px;
+            }
+            margin-bottom: 0;
+        }
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-block-6 {
+    padding-bottom : 10px;
+    .content {
+        margin-top: 10px;
+        p {
+            
+            &#abel-name {
+                color: @xanh;
+                font-family: 'aladin';
+                font-weight: bold;
+                font-size: 16px;
+                text-transform: uppercase;
+            }
+            &#abel-slogan {
+                color: @vang;
+                font-family: Candara;
+                font-weight: bold;
+                font-size: 14px;
+                text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+            }
+            strong:nth-child(1) {
+                letter-spacing: 1;
+                font-size: 22px;
+                padding-bottom: 5px;
+                display: block;
+                font-weight : 200;
+                font-family : "Times New Roman", Times, serif;
+            }
+            em {
+              letter-spacing: 1px;
+            }
+            margin-bottom: 0;
+        }
+        p:nth-child(2) {
+          word-spacing: 2px;
+        }
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-block-5 {
+    #abel-ico {
+        margin: 0 0 10px;
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-system-main-menu {
+    .content {
+        li {
+            a {
+                .abel-field-links (@trang; @vang);
+                padding: 10px 16px;
+                font-size : 14px;
+                font-family : hdtv-title-2;
+                font-weight : 800;
+                
+            }
+            float: left;
+            font-weight: bold;
+            height: 28px;
+            list-style-image: none;
+            list-style-type: none;
+            margin: 0;
+            padding: 11px 0 2px;
+        }
+        height: 62px;
+    }
+    width: 700px;
+    float: left;
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-search-form {
+    .content {
+        .abel--background (-9px -10px);
+        float: right;
+        height: 26px;
+        width: 159px;
+    }
+    .form-item-search-block-form {
+        .form-text {
+            color: @xanh-3;
+            background: transparent;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-style: italic;
+            height: 26px;
+        }
+    }
+    .form-actions {
+        .form-submit {
+            background: transparent;
+            border: none;
+            border-radius: 0px;
+            height: 26px;
+            margin: 0 0 0 -5px;
+            padding: 0;
+            width: 26px;
+        }
+    }
+    float: right;
+    margin-top: 8px;
+    width: 220px;
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-views-slide-show-block {
+    margin: -21px 0 0;
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-menu-menu-danh-muc-san-pham {
+
+    background : none;
+    .content {
+      background : transparent;
+      li.leaf {
+        border-bottom : 1px solid #999;
+        list-style-image : none;
+        list-style-type : none;
+        padding : 10px;
+        background : url('../images/giftBox.png') no-repeat;
+        background-position:0px 12px;
+        //font-family: Arial, Helvetica, sans-serif;
+        padding-left : 17px;
+        font-weight : bold;
+      }
+      li.expanded {
+        padding : 10px;
+        list-style-image : none;
+        list-style-type : none;
+        //font-family : Arial, Helvetica, sans-serif;
+        font-weight : bold;
+      }
+
+      a {
+        font-size : 13px;
+        letter-spacing: 1px;
+      }
+      
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-yahoo-gravity-yahoo-gravity {
+    li {
+        &.last {
+            border-bottom: none;
+            padding: 0;
+        }
+        .abel-bord-bottom;
+        padding: 0 0 10px 0;
+    }
+    .yahoo-contact-name {
+        visibility: hidden;
+        display: none;
+    }
+    .yahoo-contact-support {
+        a {
+            margin: 0 1px;
+        }
+        text-align: center;
+    }
+    .contact-call {
+        color: @xam-chu;
+        font-weight: bold;
+        padding: 7px 0 5px;
+        text-transform: uppercase;
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-views-news-block {
+    .content {
+        ul {
+            margin: 0;
+        }
+    }
+    li.views-row {
+        &.views-row-first {
+            padding: 0 0 5px 0;
+        }
+        &.views-row-last {
+            border-bottom: none;
+            padding: 5px 0 0 0;
+        }
+        a {
+            .abel-field-links(@fw:none);
+        }
+        .abel-bord-bottom;
+        list-style-image: url(../images/listnews.png);
+        margin: 0 0 0 15px;
+        padding: 5px 0;
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-user-login {
+    .form-item-name {
+        margin: 0 0 13px;
+    }
+    .item-list {
+        li {
+            margin: 0 0 3px;
+        }
+    }
+    .form-actions {
+        margin: 13px 0 0;
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-views-our-service-block-1 {
+    .block-inner > .content {
+        padding: 0 @im;
+    }
+    .views-row {
+        .abel-views--rows;
+        float: left;
+        text-align: center;
+    }
+    .views-field-title {
+        .abel-field-title(39px);
+    }
+    .views-field-field-service-image {
+        .abel-bor-and-pad (@type:dashed; @pads: 3px 2px);
+    }
+    .views-field-body {
+        color: @xam-chu;
+        padding: 0 3px;
+        text-align: justify;
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-system-main {
+    body.page-our-service & {
+        .views-row {
+            &:first-child {
+                margin-top: 0;
+            }
+            &:last-child {
+                .views-field-field-service-image {
+                    margin: 0 15px 0 0;
+                }
+                border-bottom: none;
+            }
+            .abel-bord-bottom;
+            margin-top: 10px;
+        }
+        .views-field-field-service-image {
+            .abel-bor-and-pad (@pads: 2px);
+            margin: 0 15px 10px 0;
+            width: 212px;
+            float: left;
+        }
+        .views-field-title {
+            .abel-field-title;
+        }
+        .views-field-view-node {
+            .field-content {
+                a {
+                    .abel-field-links;
+                }
+                float: right;
+                margin-top: -25px;
+            }
+            clear: left;
+        }
+    }
+    body.page-all-product &,body.page-taxonomy-term- & {
+        .content {
+            padding: 0 0 12px;
+        }
+    }
+    .node-product {
+        .field-name-uc-product-image {
+            .abel-bor-and-pad (@pads: 2px);
+            margin: 0 15px 10px 0;
+            width: 311px;
+        }
+        .field-name-title-field .field-item {
+            .abel-field-links(@cl: @xanh; @tt: uppercase);
+        }
+        .product-info-label,
+        .uc-price-label {
+            font-weight: bold;
+        }
+        .add-to-cart {
+            input {
+                .abel-add-to-cart;
+            }
+        }
+    }
+    .item-list {
+        clear: both;
+        padding-top: 20px @im;
+        text-align: center @im;
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+.page-taxonomy-term {
+  #page-title { 
+    background : none;
+  }
+}
+
+#region-content .view.view-taxonomy-term,
+#block-system-main .view.view-product,
+#region-content .block.block-views {
+    .content {
+      background : transparent;
+      border: none;
+    }
+    h2 {
+      background : url(../images/bullet.png) no-repeat;
+      background-position-y: 19px;
+      padding-left: 23px;
+      color : #000;
+      font-family : hdtv-title-3;
+      font-size : 20px;
+      font-weight : 500;
+      margin-bottom : 10px;
+    }
+    .block-inner > .content {
+        padding: 0 0 12px 0 @im;
+    }
+    .views-row {
+        hdtv-views-row;
+        float: left;
+        text-align: center;
+        background : transparent;
+        display:table;
+    }
+    .views-field-uc-product-image {
+        .abel-bor-and-pad (@type: dashed; @pads: 3px 2px);
+        width : 210px;
+        height : 225px;
+        margin : 0px auto;
+        vertial-align : middle;
+        margin-bottom: 3px;
+        background : #fff;
+        border : 1px solid #999;
+        display : table;
+        .field-content {
+          display : table-cell; 
+          vertical-align : middle;
+        }
+        img {
+          padding : 3px;
+          background : #fff;
+          
+        }
+    }
+    .views-field-title {
+       margin-bottom : 10px;
+    }
+    .views-field-view-node {
+      
+      background : url('../images/icon_more.png') no-repeat;
+      background-position-x : 3px;
+      width : 90px;
+      height : 40px;
+      padding-top: 4px;
+      margin-left: 63px;
+      margin-bottom: 20px;
+      a {
+        color : #fff;
+        font-weight : bold;
+      }
+    }
+    border : none;
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-views-manufacturers-block {
+    .views-row {
+        &:first-child {
+            margin: 0 4px 0 0;
+        }
+        &:last-child {
+            margin: 0 0 0 4px;
+        }
+        .abel-bor-and-pad (@pads: 3px 4px);
+        background: @trang;
+        float: left;
+        margin: 0 4px;
+        text-align: center;
+        width: 140px;
+    }
+    margin-bottom: 30px;
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-block-2 {
+    .content p {
+        a {
+            .abel-field-links(@trang; @vang);
+        }
+        font-size: 13px;
+        margin: 8px 0 15px;
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-multiblock-1 {
+    .content {
+        li {
+            a {
+                .abel-field-links(#666; @vang);
+                &.active,
+                &.active-trail {
+                    color: @vang;
+                }
+                border-right: 1px solid @trang;
+                padding: 0 6px;
+            }
+            &.last a {
+                border-right: none;
+                padding: 0 0 0 6px;
+            }
+            float: left;
+            list-style-image: none;
+            list-style-type: none;
+            margin: 0;
+            padding: 8px 0;
+        }
+        float: right;
+    }
+}
+// ---------------------------------------------------->> Block <<--------------
+#block-block-1 {
+    .content {
+        p {
+            color: @trang;
+        }
+        a {
+            .abel-field-links(@vang; @trang);
+        }
+        float: right;
+    }
+}
+// ---------------------------------------------------->> Other <<--------------
+.node .content {
+    border: none @im;
+    padding: 0 @im;
+}
+.node .field-name-body p {
+    color: @xam-chu;
+}
+.pager {
+    li {
+        &.pager-first {
+            border-radius: 0;
+        }
+        &.pager-previous {
+            a {
+                width: 70px;
+            }
+        }
+        &.pager-ellipsis {
+            display: none;
+            visibility: hidden;
+        }
+        &.pager-next {
+            position: static;
+        }
+        &.pager-last {
+            border-radius: 0;
+            position: static;
+        }
+        &.pager-current {
+            background: @xanh;
+            border-radius: 0;
+        }
+        a {
+            &:hover {
+                color: @trang;
+                background: @xanh;
+                border-radius: 0 @im;
+            }
+            background: @trang;
+            border-radius: 0 @im;
+        }
+        border: 1px solid @xanh @im;
+        border-radius: 0;
+        margin: 0 2px @im;
+    }
+    border: none;
+    display: inline-block @im;
+}
+#section-footer {
+  border-top : 1px solid #666;
+}
+
+#block-block-2 {
+  p {
+    font-family: 'alexa-std';
+  }
+}
+
+#region-sidebar-first {
+  h2.block-title {
+    color : #000;
+    font-family : hdtv-title-3;
+    font-size : 20px;
+    font-weight : 500;
+    font-size : 19px;
+  }
+}
+#block-fblikebutton-fblikebutton-static-block {
+  table {
+    td {
+       span {
+         display : block;
+        }
+    }
+  }
+}

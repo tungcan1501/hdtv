@@ -1,0 +1,614 @@
+/* This file will hold styles that are loaded using the same media query as the normal grid. */
+/* If you are using the default media queries provided by Omega, these styles will also
+ *  apply to the widescreen layout unless they are overridden by the widescreen styles. */
+body {
+  font: 12px/1.5 "Arial", Verdana, Helvetica, sans-serif;
+}
+body #page-title {
+  background: url(/mhsteel/sites/all/themes/abshop/images/imgs.png) no-repeat scroll -235px -46px;
+  color: #FFFC01;
+  font-size: 13px;
+  font-weight: bold;
+  height: 38px;
+  margin: 0 0 -9px 0;
+  padding: 9px 0 0 20px;
+  text-transform: uppercase;
+}
+body #page {
+  background: url(/mhsteel/sites/all/themes/abshop/images/imgs.png) no-repeat scroll -109px -210px;
+  background-color: #000000;
+}
+a:link,
+a:hover,
+a:visited {
+  text-decoration: none;
+}
+button,
+input[type="reset"],
+input[type="submit"],
+input[type="button"] {
+  background: #fefefe;
+  background: -webkit-linear-gradient(90deg,#fefefe 30%,#efefef 70%);
+  background: -moz-linear-gradient(90deg,#fefefe 30%,#efefef 70%);
+  background: -ms-linear-gradient(90deg,#fefefe 30%,#efefef 70%);
+  background: -o-linear-gradient(90deg,#fefefe 30%,#efefef 70%);
+  background: linear-gradient(180deg,#fefefe 30%,#efefef 70%);
+  border: 1px solid #CCCCCC;
+  padding: 3px 10px 4px 10px;
+  color: #555555;
+  border-radius: 12px;
+  height: 26px;
+}
+button:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background: #0098cd;
+  background: -webkit-linear-gradient(90deg,#0098cd 30%,#00689e 70%);
+  background: -moz-linear-gradient(90deg,#0098cd 30%,#00689e 70%);
+  background: -ms-linear-gradient(90deg,#0098cd 30%,#00689e 70%);
+  background: -o-linear-gradient(90deg,#0098cd 30%,#00689e 70%);
+  background: linear-gradient(180deg,#0098cd 30%,#00689e 70%);
+  color: #FFFFFF;
+  border: none !important;
+  padding: 4px 11px 5px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Arial", Helvetica, sans-serif;
+  letter-spacing: -0.05em;
+}
+input {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+p {
+  margin-bottom: 10px;
+}
+#section-header {
+  padding-top: 40px;
+}
+#zone-header {
+  background: #FFFFFF;
+}
+#zone-branding {
+  border-bottom: 5px solid #08507E;
+}
+#zone-menu-wrapper {
+  background: url(/mhsteel/sites/all/themes/abshop/images/imgs.png) no-repeat scroll 156px -104px;
+}
+#zone-content {
+  background: #F0F0F0;
+}
+#zone-content .region {
+  margin-top: 30px;
+}
+#zone-content #region-sidebar-second {
+  margin-top: 0;
+}
+#region-sidebar-first .block {
+  margin: 0 0 20px 0;
+}
+#region-sidebar-first .block .block-title {
+  background: url(/mhsteel/sites/all/themes/abshop/images/imgs.png) no-repeat scroll -9px -46px;
+  color: #FFFC01;
+  font-size: 13px;
+  font-weight: bold;
+  height: 38px;
+  margin: 0 0 -9px 0;
+  padding: 9px 0 0 0px;
+  text-transform: uppercase;
+  text-align: center;
+}
+#region-sidebar-first .block .content {
+  border: 1px solid #CCCCCC;
+  padding: 15px 7px;
+  background: #FFFFFF;
+  border-radius: 0 0 5px 5px;
+}
+#region-content .block {
+  margin-bottom: 20px;
+}
+#region-content .block-title {
+  background: url(/mhsteel/sites/all/themes/abshop/images/imgs.png) no-repeat scroll -235px -46px;
+  color: #FFFC01;
+  font-size: 13px;
+  font-weight: bold;
+  height: 38px;
+  margin: 0 0 -9px 0;
+  padding: 9px 0 0 20px;
+  text-transform: uppercase;
+}
+#region-content .block-inner > .content {
+  border: 1px solid #CCCCCC;
+  padding: 10px;
+  background: #FFFFFF;
+}
+#block-block-7 .content {
+  margin-top: 20px;
+}
+#block-block-7 .content p {
+  margin-bottom: 0;
+}
+#block-block-7 .content p#abel-logo {
+  float: left;
+  width: 200px;
+}
+#block-block-6 .content {
+  margin-top: 20px;
+}
+#block-block-6 .content p {
+  margin-bottom: 0;
+}
+#block-block-6 .content p#abel-name {
+  color: #517CC5;
+  font-family: Cambria;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+#block-block-6 .content p#abel-slogan {
+  color: #FFFC01;
+  font-family: Candara;
+  font-weight: bold;
+  font-size: 14px;
+  text-shadow: 1px 1px 2px #969696;
+}
+#block-block-5 #abel-ico {
+  margin: 0 0 10px;
+}
+#block-system-main-menu {
+  width: 700px;
+  float: left;
+}
+#block-system-main-menu .content {
+  height: 62px;
+}
+#block-system-main-menu .content li {
+  float: left;
+  font-weight: bold;
+  height: 28px;
+  list-style-image: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 11px 0 2px;
+}
+#block-system-main-menu .content li a {
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: none;
+  padding: 12px 16px;
+}
+#block-system-main-menu .content li a:hover {
+  color: #FFFC01;
+}
+#block-search-form {
+  float: right;
+  margin-top: 8px;
+  width: 220px;
+}
+#block-search-form .content {
+  background: url(/mhsteel/sites/all/themes/abshop/images/imgs.png) no-repeat scroll -9px -10px;
+  float: right;
+  height: 26px;
+  width: 159px;
+}
+#block-search-form .form-item-search-block-form .form-text {
+  color: #81CEFF;
+  background: transparent;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  font-style: italic;
+  height: 26px;
+}
+#block-search-form .form-actions .form-submit {
+  background: transparent;
+  border: none;
+  border-radius: 0px;
+  height: 26px;
+  margin: 0 0 0 -5px;
+  padding: 0;
+  width: 26px;
+}
+#block-views-slide-show-block {
+  margin: -21px 0 0;
+}
+#block-menu-menu-danh-muc-san-pham ul.menu {
+  margin: 0 0 0 13px;
+}
+#block-menu-menu-danh-muc-san-pham ul.menu li.expanded {
+  list-style-image: url(/mhsteel/sites/all/themes/abshop/images/listexpanded.png);
+  padding: 15px 0 0;
+}
+#block-menu-menu-danh-muc-san-pham ul.menu li.expanded ul.menu {
+  border-bottom: 1px dashed #CCCCCC;
+  margin: 0 0 0 -20px;
+  padding: 0 0 15px 20px;
+}
+#block-menu-menu-danh-muc-san-pham ul.menu li.expanded li.leaf {
+  list-style-image: url(/mhsteel/sites/all/themes/abshop/images/listleaf.png);
+  padding: 2px 0 0;
+}
+#block-menu-menu-danh-muc-san-pham ul.menu li.expanded.first {
+  padding: 0;
+}
+#block-menu-menu-danh-muc-san-pham ul.menu li.last {
+  list-style-image: url(/mhsteel/sites/all/themes/abshop/images/listexpanded.png);
+  padding: 4px 6px 0 0;
+}
+#block-menu-menu-danh-muc-san-pham ul.menu a {
+  color: #555555;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: none;
+  padding: 6px 0 2px;
+}
+#block-menu-menu-danh-muc-san-pham ul.menu a:hover {
+  color: #517CC5;
+}
+#block-menu-menu-danh-muc-san-pham ul.menu li.expanded > a {
+  text-transform: uppercase;
+}
+#block-yahoo-gravity-yahoo-gravity li {
+  border-bottom: 1px dashed #CCCCCC;
+  padding: 0 0 10px 0;
+}
+#block-yahoo-gravity-yahoo-gravity li.last {
+  border-bottom: none;
+  padding: 0;
+}
+#block-yahoo-gravity-yahoo-gravity .yahoo-contact-name {
+  visibility: hidden;
+  display: none;
+}
+#block-yahoo-gravity-yahoo-gravity .yahoo-contact-support {
+  text-align: center;
+}
+#block-yahoo-gravity-yahoo-gravity .yahoo-contact-support a {
+  margin: 0 1px;
+}
+#block-yahoo-gravity-yahoo-gravity .contact-call {
+  color: #555555;
+  font-weight: bold;
+  padding: 7px 0 5px;
+  text-transform: uppercase;
+}
+#block-views-news-block .content ul {
+  margin: 0;
+}
+#block-views-news-block li.views-row {
+  border-bottom: 1px dashed #CCCCCC;
+  list-style-image: url(/mhsteel/sites/all/themes/abshop/images/listnews.png);
+  margin: 0 0 0 15px;
+  padding: 5px 0;
+}
+#block-views-news-block li.views-row.views-row-first {
+  padding: 0 0 5px 0;
+}
+#block-views-news-block li.views-row.views-row-last {
+  border-bottom: none;
+  padding: 5px 0 0 0;
+}
+#block-views-news-block li.views-row a {
+  color: #555555;
+  font-size: 13px;
+  font-weight: none;
+  text-transform: none;
+}
+#block-views-news-block li.views-row a:hover {
+  color: #517CC5;
+}
+#block-user-login .form-item-name {
+  margin: 0 0 13px;
+}
+#block-user-login .item-list li {
+  margin: 0 0 3px;
+}
+#block-user-login .form-actions {
+  margin: 13px 0 0;
+}
+#block-views-our-service-block-1 .block-inner > .content {
+  padding: 0 !important;
+}
+#block-views-our-service-block-1 .views-row {
+  padding: 12px 6px 8px;
+  width: 220px;
+  float: left;
+  text-align: center;
+}
+#block-views-our-service-block-1 .views-row:nth-child(3n+1) {
+  padding: 12px 7px 8px 6px;
+}
+#block-views-our-service-block-1 .views-row:nth-child(3n) {
+  padding: 12px 6px 8px 7px;
+}
+#block-views-our-service-block-1 .views-field-title {
+  height: 39px;
+}
+#block-views-our-service-block-1 .views-field-title a {
+  color: #555555;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#block-views-our-service-block-1 .views-field-title a:hover {
+  color: #517CC5;
+}
+#block-views-our-service-block-1 .views-field-field-service-image {
+  border: 1px dashed #CCCCCC;
+  padding: 3px 2px;
+}
+#block-views-our-service-block-1 .views-field-body {
+  color: #555555;
+  padding: 0 3px;
+  text-align: justify;
+}
+body.page-our-service #block-system-main .views-row {
+  border-bottom: 1px dashed #CCCCCC;
+  margin-top: 10px;
+}
+body.page-our-service #block-system-main .views-row:first-child {
+  margin-top: 0;
+}
+body.page-our-service #block-system-main .views-row:last-child {
+  border-bottom: none;
+}
+body.page-our-service #block-system-main .views-row:last-child .views-field-field-service-image {
+  margin: 0 15px 0 0;
+}
+body.page-our-service #block-system-main .views-field-field-service-image {
+  border: 1px solid #CCCCCC;
+  padding: 2px;
+  margin: 0 15px 10px 0;
+  width: 212px;
+  float: left;
+}
+body.page-our-service #block-system-main .views-field-title {
+  height: 20px;
+}
+body.page-our-service #block-system-main .views-field-title a {
+  color: #555555;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+body.page-our-service #block-system-main .views-field-title a:hover {
+  color: #517CC5;
+}
+body.page-our-service #block-system-main .views-field-view-node {
+  clear: left;
+}
+body.page-our-service #block-system-main .views-field-view-node .field-content {
+  float: right;
+  margin-top: -25px;
+}
+body.page-our-service #block-system-main .views-field-view-node .field-content a {
+  color: #555555;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: none;
+}
+body.page-our-service #block-system-main .views-field-view-node .field-content a:hover {
+  color: #517CC5;
+}
+body.page-all-product #block-system-main .content,
+body.page-taxonomy-term- #block-system-main .content {
+  padding: 0 0 12px;
+}
+#block-system-main .node-product .field-name-uc-product-image {
+  border: 1px solid #CCCCCC;
+  padding: 2px;
+  margin: 0 15px 10px 0;
+  width: 311px;
+}
+#block-system-main .node-product .field-name-title-field .field-item {
+  color: #517CC5;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#block-system-main .node-product .field-name-title-field .field-item:hover {
+  color: #517CC5;
+}
+#block-system-main .node-product .product-info-label,
+#block-system-main .node-product .uc-price-label {
+  font-weight: bold;
+}
+#block-system-main .node-product .add-to-cart input {
+  background: url(/mhsteel/sites/all/themes/abshop/images/imgs.png) no-repeat scroll -187px -9px;
+  height: 27px;
+  padding: 4px 10px 5px 37px;
+}
+#block-system-main .node-product .add-to-cart input:hover {
+  background: url(/mhsteel/sites/all/themes/abshop/images/imgs.png) no-repeat scroll -442px -8px;
+  padding: 5px 11px 6px 38px;
+}
+#block-system-main .item-list {
+  clear: both;
+  padding-top: 20px !important;
+  text-align: center !important;
+}
+.block-views-product-block .block-inner > .content {
+  padding: 0 0 12px 0 !important;
+}
+.block-views-product-block .views-row {
+  padding: 12px 6px 8px;
+  width: 220px;
+  float: left;
+  text-align: center;
+}
+.block-views-product-block .views-row:nth-child(3n+1) {
+  padding: 12px 7px 8px 6px;
+}
+.block-views-product-block .views-row:nth-child(3n) {
+  padding: 12px 6px 8px 7px;
+}
+.block-views-product-block .views-field-uc-product-image {
+  border: 1px dashed #CCCCCC;
+  padding: 3px 2px;
+  margin-bottom: 3px;
+}
+.block-views-product-block .views-field-title {
+  height: 39px;
+}
+.block-views-product-block .views-field-title a {
+  color: #555555;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.block-views-product-block .views-field-title a:hover {
+  color: #517CC5;
+}
+.block-views-product-block .views-field-body .field-content {
+  height: 72px;
+  padding-left: 5px;
+  text-align: left;
+}
+.block-views-product-block .views-field-body p {
+  margin-bottom: 0;
+}
+.block-views-product-block .views-field-addtocartlink .form-actions {
+  margin: 5px 0;
+}
+.block-views-product-block .views-field-addtocartlink .form-actions input {
+  background: url(/mhsteel/sites/all/themes/abshop/images/imgs.png) no-repeat scroll -187px -9px;
+  height: 27px;
+  padding: 4px 10px 5px 37px;
+}
+.block-views-product-block .views-field-addtocartlink .form-actions input:hover {
+  background: url(/mhsteel/sites/all/themes/abshop/images/imgs.png) no-repeat scroll -442px -8px;
+  padding: 5px 11px 6px 38px;
+}
+.block-views-product-block .views-field-view-node {
+  display: none;
+  visibility: hidden;
+}
+#block-views-manufacturers-block {
+  margin-bottom: 30px;
+}
+#block-views-manufacturers-block .views-row {
+  border: 1px solid #CCCCCC;
+  padding: 3px 4px;
+  background: #FFFFFF;
+  float: left;
+  margin: 0 4px;
+  text-align: center;
+  width: 140px;
+}
+#block-views-manufacturers-block .views-row:first-child {
+  margin: 0 4px 0 0;
+}
+#block-views-manufacturers-block .views-row:last-child {
+  margin: 0 0 0 4px;
+}
+#block-block-2 .content p {
+  color: #FFFFFF;
+  font-size: 13px;
+  margin: 8px 0 15px;
+}
+#block-block-2 .content p a {
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: none;
+}
+#block-block-2 .content p a:hover {
+  color: #FFFC01;
+}
+#block-multiblock-1 .content {
+  float: right;
+}
+#block-multiblock-1 .content li {
+  float: left;
+  list-style-image: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 8px 0;
+}
+#block-multiblock-1 .content li a {
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: none;
+  border-right: 1px solid #FFFFFF;
+  padding: 0 6px;
+}
+#block-multiblock-1 .content li a:hover {
+  color: #FFFC01;
+}
+#block-multiblock-1 .content li a.active,
+#block-multiblock-1 .content li a.active-trail {
+  color: #FFFC01;
+}
+#block-multiblock-1 .content li.last a {
+  border-right: none;
+  padding: 0 0 0 6px;
+}
+#block-block-1 .content {
+  float: right;
+}
+#block-block-1 .content p {
+  color: #FFFFFF;
+}
+#block-block-1 .content a {
+  color: #FFFC01;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: none;
+}
+#block-block-1 .content a:hover {
+  color: #FFFFFF;
+}
+.node .content {
+  border: none !important;
+  padding: 0 !important;
+}
+.node .field-name-body p {
+  color: #555555;
+}
+.pager {
+  background: #FFFFFF;
+  border: none;
+  display: inline-block !important;
+}
+.pager li {
+  border: 1px solid #517CC5 !important;
+  border-radius: 0;
+  margin: 0 2px !important;
+}
+.pager li.pager-first {
+  border-radius: 0;
+}
+.pager li.pager-previous a {
+  width: 70px;
+}
+.pager li.pager-ellipsis {
+  display: none;
+  visibility: hidden;
+}
+.pager li.pager-next {
+  position: static;
+}
+.pager li.pager-last {
+  border-radius: 0;
+  position: static;
+}
+.pager li.pager-current {
+  background: #517CC5;
+  border-radius: 0;
+}
+.pager li a {
+  background: #FFFFFF;
+  border-radius: 0 !important;
+}
+.pager li a:hover {
+  color: #FFFFFF;
+  background: #517CC5;
+  border-radius: 0 !important;
+}
