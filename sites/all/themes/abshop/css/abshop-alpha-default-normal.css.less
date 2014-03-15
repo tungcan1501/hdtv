@@ -64,6 +64,11 @@
 .abel--background (@pos: 0px 0px) {
     background: url('../images/imgs.png') no-repeat scroll @pos;
 }
+
+.abel--background1 () {
+    background: url('../images/menu_bg.png') repeat-x;
+    
+}
 .abel-add-to-cart () {
     &:hover {
         .abel--background (-442px -8px);
@@ -135,7 +140,7 @@ body {
     font: 12px/1.5 "Arial", Verdana, Helvetica, sans-serif;
     #page-title {
       background : url(../images/bullet.png) no-repeat;
-      background-position-y: 19px;
+      background-position-y: 9px;
       padding-left: 23px;
       color : #000;
       font-family : hdtv-title-3;
@@ -188,8 +193,8 @@ p {
 #zone-branding {
     .abel-bord-bottom (5px; solid; @xanh-2);
 }
-#zone-menu-wrapper {
-    .abel--background (156px -104px);
+#zone-menu {
+    .abel--background1 ();
 }
 #zone-content {
     background: @xam;
@@ -205,13 +210,13 @@ p {
     .block {
         .block-title {
             .abel-page--title (@xy: -9px -46px; @padleft: 0px);
-            background : url(../images/24_frame.png) no-repeat;
+            background : url(../images/bullet.png) no-repeat;
             bacground-position-y : 20px;
             font-size: 18px;
             font-weight : 500;
             margin-left : 0px;
             margin-bottom : 5px;
-            background-position-y: 10PX;
+            background-position-y: 13px;
             padding-left: 30px;
         }
         .content {
@@ -366,18 +371,28 @@ p {
         list-style-image : none;
         list-style-type : none;
         padding : 10px;
-        background : url('../images/giftBox.png') no-repeat;
+        background : url('../images/bullet1.png') no-repeat;
         background-position:0px 12px;
         //font-family: Arial, Helvetica, sans-serif;
-        padding-left : 17px;
+        padding-left : 20px;
         font-weight : bold;
       }
       li.expanded {
         padding : 10px;
         list-style-image : none;
         list-style-type : none;
-        //font-family : Arial, Helvetica, sans-serif;
+        background : url('../images/bullet1.png') no-repeat;
+        background-position:0px 12px;
+        padding-left : 20px;
         font-weight : bold;
+        border-bottom : 1px solid #999;
+        li.leaf {
+          padding-left : 10px;
+          background : none;
+          border : none;
+          
+          padding : 7px;
+        }
       }
 
       a {
@@ -556,7 +571,7 @@ p {
     }
     h2 {
       background : url(../images/bullet.png) no-repeat;
-      background-position-y: 19px;
+      background-position-y: 14px;
       padding-left: 23px;
       color : #000;
       font-family : hdtv-title-3;
