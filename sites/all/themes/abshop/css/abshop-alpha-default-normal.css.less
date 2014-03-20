@@ -367,7 +367,7 @@ p {
     .content {
       background : transparent;
       li.leaf {
-        border-bottom : 1px solid #999;
+        border-bottom : 1px dashed #999;
         list-style-image : none;
         list-style-type : none;
         padding : 10px;
@@ -385,13 +385,15 @@ p {
         background-position:0px 12px;
         padding-left : 20px;
         font-weight : bold;
-        border-bottom : 1px solid #999;
+        border-bottom : 1px dashed #999;
         li.leaf {
-          padding-left : 10px;
+          
           background : none;
           border : none;
-          
+          background : url('../images/arrow_small.png') no-repeat;
+          background-position-y: 7px;
           padding : 7px;
+          padding-left : 20px;
         }
       }
 
@@ -431,27 +433,11 @@ p {
 }
 // ---------------------------------------------------->> Block <<--------------
 #block-views-news-block {
-    .content {
-        ul {
-            margin: 0;
-        }
-    }
-    li.views-row {
-        &.views-row-first {
-            padding: 0 0 5px 0;
-        }
-        &.views-row-last {
-            border-bottom: none;
-            padding: 5px 0 0 0;
-        }
-        a {
-            .abel-field-links(@fw:none);
-        }
-        .abel-bord-bottom;
-        list-style-image: url(../images/listnews.png);
-        margin: 0 0 0 15px;
-        padding: 5px 0;
-    }
+  table {
+    border : none;
+    tr { border-bottom : 1px dashed #888; background : transparent}
+    td {background : transparent}
+  }
 }
 // ---------------------------------------------------->> Block <<--------------
 #block-user-login {
@@ -491,13 +477,15 @@ p {
 }
 // ---------------------------------------------------->> Block <<--------------
 #block-system-main {
-    body.page-our-service & {
+    body.page-dich-vu & {
+
         .views-row {
+            height : 240px;
             &:first-child {
                 margin-top: 0;
             }
             &:last-child {
-                .views-field-field-service-image {
+                .views-field-field-pc-image {
                     margin: 0 15px 0 0;
                 }
                 border-bottom: none;
@@ -505,13 +493,13 @@ p {
             .abel-bord-bottom;
             margin-top: 10px;
         }
-        .views-field-field-service-image {
+        .views-field-field-pc-image {
             .abel-bor-and-pad (@pads: 2px);
             margin: 0 15px 10px 0;
-            width: 212px;
+            width: 220px;
             float: left;
         }
-        .views-field-title {
+        .views-field-name {
             .abel-field-title;
         }
         .views-field-view-node {
@@ -525,6 +513,7 @@ p {
             clear: left;
         }
     }
+
     body.page-all-product &,body.page-taxonomy-term- & {
         .content {
             padding: 0 0 12px;
